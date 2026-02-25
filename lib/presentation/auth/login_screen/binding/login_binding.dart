@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 
 import '../controller/login_controller.dart';
 
-class loginBinding extends Bindings {
+class LoginBinding extends Bindings {
   @override
   void dependencies() {
     // TODO: implement dependencies

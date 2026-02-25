@@ -20,9 +20,49 @@ class ApiService {
   Future<dynamic> post({
     required String endpoint,
     Map<String, dynamic>? data,
+    Map<String, dynamic>? queryParameter,
   }) async {
     try {
-      Response response = await dio.post(endpoint, data: data);
+      Response response =
+          await dio.post(endpoint, data: data, queryParameters: queryParameter);
+
+      print(" SUCCESS [${response.statusCode}] => $endpoint");
+      print("RESPONSE => ${response.data}");
+      return response;
+    } on DioException catch (e) {
+      return _handleError(e);
+    } catch (e) {
+      print(" ERROR: $e");
+      return null;
+    }
+  }
+
+  Future<dynamic> get({
+    required String endpoint,
+    Map<String, dynamic>? query,
+  }) async {
+    try {
+      Response response = await dio.get(endpoint, queryParameters: query);
+
+      print(" SUCCESS [${response.statusCode}] => $endpoint");
+      print("RESPONSE => ${response.data}");
+      return response;
+    } on DioException catch (e) {
+      return _handleError(e);
+    } catch (e) {
+      print(" ERROR: $e");
+      return null;
+    }
+  }
+
+  Future<dynamic> put({
+    required String endpoint,
+    Map<String, dynamic>? data,
+    Map<String, dynamic>? queryParameter,
+  }) async {
+    try {
+      Response response =
+          await dio.put(endpoint, data: data, queryParameters: queryParameter);
 
       print(" SUCCESS [${response.statusCode}] => $endpoint");
       print("RESPONSE => ${response.data}");
@@ -35,12 +75,14 @@ class ApiService {
     }
   }
 
-  Future<dynamic> get({
+  Future<dynamic> delete({
     required String endpoint,
-    Map<String, dynamic>? query,
+    Map<String, dynamic>? data,
+    Map<String, dynamic>? queryParameter,
   }) async {
     try {
-      Response response = await dio.get(endpoint, queryParameters: query);
+      Response response = await dio.delete(endpoint,
+          data: data, queryParameters: queryParameter);
 
       print(" SUCCESS [${response.statusCode}] => $endpoint");
       print("RESPONSE => ${response.data}");
