@@ -12,7 +12,7 @@ class SharedPref {
     await pref.setString(key, value);
   }
 
-  static Future<String?> getStringPref(String key, String value) async {
+  static Future<String?> getStringPref(String key) async {
     final pref = await SharedPreferences.getInstance();
     return await pref.getString(key);
   }
@@ -22,7 +22,7 @@ class SharedPref {
     await pref.setBool(key, value);
   }
 
-  static Future<bool?> getBoolPref(String key, bool value) async {
+  static Future<bool?> getBoolPref(String key) async {
     final pref = await SharedPreferences.getInstance();
     return await pref.getBool(key);
   }
@@ -32,7 +32,7 @@ class SharedPref {
     await pref.setInt(key, value);
   }
 
-  static Future<int?> getIntPref(String key, int value) async {
+  static Future<int?> getIntPref(String key) async {
     final pref = await SharedPreferences.getInstance();
     return await pref.getInt(key);
   }

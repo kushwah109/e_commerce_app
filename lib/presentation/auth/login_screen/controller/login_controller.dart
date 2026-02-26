@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 
 import '../../../../core/common_custom/widget/custom_snackbar.dart';
 import '../../../../core/endpoints/endpoints.dart';
+import '../../../../core/route/app_routes.dart';
 import '../../../../data/shared_pref.dart';
 import '../model/login_model.dart';
 
@@ -23,13 +24,13 @@ class loginController extends GetxController {
       });
 
       if (response.statusCode == 200 || response.statusCode == 201) {
-        var res = authResponse.fromJson(response.b);
+        // var res = authResponse.fromJson(response.data);
         await SharedPref.setStringPref(param.TOKEN, response.data['token']);
         AppSnackbarWidget(
           message: 'login successfully',
           type: SnackType.success,
         );
-
+        Get.offAllNamed(AppRoutes.mainScreen);
         isLoading.value = false;
       } else {
         isLoading.value = false;

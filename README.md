@@ -30,8 +30,51 @@ Rest API
 Local Storage
 Payment Gateway
 
+## Reusable Components
+Custom AppBar
+Custom Bottom Navigation Bar
+Generic AppGridView
+Common UI components
+Custom Snackbar
+Custom TextFormField
+Custom TapButton
+
+
 ## Core Features
 
-  ## Authentication
+## Authentication module
+Features
+User login using API
+Token-based authentication
+Persistent login session
+Auto login on app restart
+Secure logout
+API error parsing and validation handling
+
+## Product Module
+Fetch product list from API
+Grid view UI for products
+Product details screen
+Reusable generic grid widget
+Navigation with argument passing
+Dynamic UI based on model
+Loading state handling
+Pull-to-refresh functionality
+
+## Home Module
+Custom reusable AppBar
+Banner slider
+Category horizontal list
+Featured products section
+Bottom navigation with IndexedStack (persistent state)
+Custom bottom navigation bar
+
+## Navigation System
+GetX routing
+Named routes
+Persistent bottom navigation
+Argument-based navigation to details screen
+
+
 
 

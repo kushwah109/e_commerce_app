@@ -1,7 +1,9 @@
 import 'dart:async';
 
+import 'package:e_commerce_app/core/constant/parameters.dart';
+import 'package:e_commerce_app/core/route/app_routes.dart';
+import 'package:e_commerce_app/data/shared_pref.dart';
 import 'package:get/get.dart';
-import '../../../core/route/app_routes.dart';
 
 class SplashController extends GetxController {
   @override
@@ -12,17 +14,17 @@ class SplashController extends GetxController {
 
   void _startTimer() {
     Timer(const Duration(seconds: 3), () {
-      _checkLogin();
+      checkLogin();
     });
   }
 
-  void _checkLogin() {
-    bool isLogin = false;
+  Future<void> checkLogin() async {
+    final token = await SharedPref.getStringPref(param.TOKEN);
 
-    if (isLogin) {
-      // Get.offAllNamed(AppRoutes.home);
+    if (token != null && token.isNotEmpty) {
+      Get.offAll(AppRoutes.mainScreen);
     } else {
-      Get.offAllNamed(AppRoutes.loginScreen);
+      Get.offAll(AppRoutes.mainScreen);
     }
   }
 }
